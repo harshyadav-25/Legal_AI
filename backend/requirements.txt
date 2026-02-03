@@ -4,3 +4,6 @@ python-multipart
 pydantic
 openai
 PyPDF2
+motor
+pymongo
+
