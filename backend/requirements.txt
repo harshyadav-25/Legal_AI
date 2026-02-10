@@ -4,7 +4,7 @@ python-multipart
 pydantic
 pydantic-settings
 groq
-PyPDF2
+pypdf
 motor
 pymongo
 passlib[bcrypt]
