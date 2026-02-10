@@ -2,12 +2,12 @@ fastapi
 uvicorn
 python-multipart
 pydantic
-openai
+pydantic-settings
+groq
 PyPDF2
 motor
 pymongo
 passlib[bcrypt]
 python-jose
 email-validator
-
 
