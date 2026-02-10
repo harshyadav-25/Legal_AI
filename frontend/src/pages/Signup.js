@@ -31,7 +31,7 @@ export default function Signup() {
 
         try {
             // Assuming endpoint is /auth/register or /auth/signup
-            await API.post("/auth/register", {
+            await API.post("/auth/signup", {
                 email: email,
                 password: password
             });
