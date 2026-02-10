@@ -1,48 +1,44 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.api.protected import router as protected_router
+from app.api.pdf import router as pdf_router
+from app.api.ai import router as ai_router
 
-# MongoDB connection handlers
+
+
+
+from app.api.auth import router as auth_router
 from app.core.database import connect_to_mongo, close_mongo_connection
 
-# -----------------------------
-# FastAPI App Initialization
-# -----------------------------
-app = FastAPI(
-    title="AI Legal Sentinel",
-    description="AI-powered legal document analysis platform",
-    version="1.0.0",
-)
+app = FastAPI(title="LegalAI")
 
-# -----------------------------
-# CORS Configuration
-# -----------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # frontend later (Vercel)
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# -----------------------------
-# Application Events
-# -----------------------------
+app.include_router(auth_router)
+app.include_router(protected_router)
+app.include_router(pdf_router)
+app.include_router(ai_router)
+
+
+
+
+
 @app.on_event("startup")
-async def startup_event():
-    connect_to_mongo()
-    print("MongoDB connected successfully")
+async def startup():
+    await connect_to_mongo(app)
+
 
 @app.on_event("shutdown")
-async def shutdown_event():
-    close_mongo_connection()
-    print("MongoDB connection closed")
+async def shutdown():
+    await close_mongo_connection(app)
 
-# -----------------------------
-# Health Check Route
-# -----------------------------
+
 @app.get("/")
-def health_check():
-    return {
-        "status": "running",
-        "service": "AI Legal Sentinel Backend"
-    }
+def root():
+    return {"status": "Backend running"}

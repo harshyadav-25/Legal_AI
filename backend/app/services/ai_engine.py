@@ -1,40 +1,20 @@
-from groq import Groq
-
-from app.core.config import settings
-from app.core.prompts import build_document_prompt
+from app.core.prompts import detect_risks, classify_document, summarize_text
+from app.services.llm_engine import llm_analyze
 
 
-class AILegalEngine:
-    """
-    Central AI engine for AI Legal Sentinel
-    """
+def analyze_legal_text(text: str, language: str = "English"):
+    risks = detect_risks(text)
+    confidence = min(95, 60 + len(risks) * 5)
 
-    def __init__(self):
-        self.client = Groq(api_key=settings.GROQ_API_KEY)
+    llm_result = llm_analyze(text, language)
 
-    def analyze_document(
-        self,
-        document_text: str,
-        simple_mode: bool = False,
-        language: str = "English",
-    ) -> str:
-        """
-        Sends document text to AI and returns structured analysis
-        """
-
-        prompt = build_document_prompt(
-            document_text=document_text,
-            simple_mode=simple_mode,
-            language=language,
-        )
-
-        response = self.client.chat.completions.create(
-            model="llama-3.1-8b-instant",
-            messages=[
-                {"role": "system", "content": "You are a legal AI assistant."},
-                {"role": "user", "content": prompt},
-            ],
-            temperature=0.3,
-        )
-
-        return response.choices[0].message.content
+    return {
+        "rule_based": {
+            "summary": summarize_text(text),
+            "document_type": classify_document(text),
+            "risk_count": len(risks),
+            "confidence_score": f"{confidence}%",
+            "risks": risks
+        },
+        "llm_analysis": llm_result
+    }

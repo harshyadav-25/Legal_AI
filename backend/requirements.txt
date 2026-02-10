@@ -6,4 +6,8 @@ openai
 PyPDF2
 motor
 pymongo
+passlib[bcrypt]
+python-jose
+email-validator
+
 

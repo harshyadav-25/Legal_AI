@@ -1,40 +1,70 @@
-# This is the identity of your AI
-BASE_SYSTEM_PROMPT = """
-You are AI Legal Sentinel, a responsible legal document analyst.
-You do NOT provide legal advice.
-You explain legal documents in simple, user-friendly language.
-You highlight risks and obligations clearly.
-"""
+RISK_RULES = {
+    "penalty": {
+        "severity": "HIGH",
+        "suggestion": "Review penalty clauses carefully. Consider negotiating caps."
+    },
+    "termination": {
+        "severity": "HIGH",
+        "suggestion": "Check termination conditions and notice periods."
+    },
+    "liability": {
+        "severity": "HIGH",
+        "suggestion": "Ensure liability is limited and clearly defined."
+    },
+    "indemnify": {
+        "severity": "HIGH",
+        "suggestion": "Indemnity clauses can create major risk. Seek legal advice."
+    },
+    "confidential": {
+        "severity": "MEDIUM",
+        "suggestion": "Verify confidentiality obligations and duration."
+    },
+    "non-compete": {
+        "severity": "MEDIUM",
+        "suggestion": "Non-compete clauses may restrict future work."
+    },
+    "fine": {
+        "severity": "HIGH",
+        "suggestion": "Check fine amounts and triggering conditions."
+    },
+    "breach": {
+        "severity": "MEDIUM",
+        "suggestion": "Understand breach definitions and remedies."
+    }
+}
 
 
-def build_document_prompt(
-    document_text: str,
-    simple_mode: bool,
-    language: str
-) -> str:
-    """
-    Builds a structured prompt for legal document analysis
-    """
+def detect_risks(text: str):
+    findings = []
+    text_lower = text.lower()
 
-    explanation_style = (
-        "Explain like I am 18 years old. Use examples."
-        if simple_mode
-        else "Use clear, professional language."
-    )
+    for keyword, rule in RISK_RULES.items():
+        if keyword in text_lower:
+            findings.append({
+                "keyword": keyword,
+                "severity": rule["severity"],
+                "message": f"Clause related to '{keyword}' detected",
+                "suggestion": rule["suggestion"]
+            })
 
-    return f"""
-{BASE_SYSTEM_PROMPT}
+    return findings
 
-Language: {language}
-Explanation Style: {explanation_style}
 
-Analyze the document and return:
-1. Plain summary
-2. Key clauses
-3. User obligations
-4. Legal risks
-5. Important deadlines (if any)
+def classify_document(text: str) -> str:
+    t = text.lower()
 
-Document:
-{document_text}
-"""
+    if "non-disclosure" in t or "confidential" in t:
+        return "NDA"
+    if "lease" in t or "rent" in t:
+        return "Lease Agreement"
+    if "employment" in t:
+        return "Employment Agreement"
+    if "agreement" in t:
+        return "General Agreement"
+
+    return "Unknown Document"
+
+
+def summarize_text(text: str, limit: int = 5):
+    sentences = [s.strip() for s in text.split(".") if len(s.strip()) > 30]
+    return ". ".join(sentences[:limit])

@@ -1,17 +1,12 @@
-import pdfplumber
+from pypdf import PdfReader
 
 
-class PDFEngine:
-    """
-    Responsible for extracting text from PDF documents
-    """
+def extract_text_from_pdf(file_path: str) -> str:
+    reader = PdfReader(file_path)
+    text = ""
 
-    @staticmethod
-    def extract_text(file) -> str:
-        extracted_text = ""
+    for page in reader.pages:
+        if page.extract_text():
+            text += page.extract_text() + "\n"
 
-        with pdfplumber.open(file) as pdf:
-            for page in pdf.pages:
-                extracted_text += page.extract_text() or ""
-
-        return extracted_text.strip()
+    return text.strip()

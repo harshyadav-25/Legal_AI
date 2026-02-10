@@ -1,14 +1,15 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from app.core.config import settings
 
-class MongoDB:
-    client: AsyncIOMotorClient = None
 
-mongodb = MongoDB()
+async def connect_to_mongo(app):
+    client = AsyncIOMotorClient(settings.MONGODB_URL)
+    app.state.mongo_client = client
+    app.state.db = client["ai_legal_sentinel"]
+    print("MongoDB connected successfully")
 
-def connect_to_mongo():
-    mongodb.client = AsyncIOMotorClient(settings.MONGODB_URL)
 
-def close_mongo_connection():
-    if mongodb.client:
-        mongodb.client.close()
+async def close_mongo_connection(app):
+    client = app.state.mongo_client
+    if client:
+        client.close()
