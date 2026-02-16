@@ -40,7 +40,7 @@ export default function Signup() {
             navigate("/login");
         } catch (err) {
             console.error(err);
-            setError(err.response?.data?.detail || "Registration failed. Try again.");
+            setError(err.response?.data?.detail || err.message || "Registration failed. Try again.");
         } finally {
             setLoading(false);
         }
@@ -143,6 +143,9 @@ export default function Signup() {
                 <div className="text-center mt-4">
                     <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
                         Already have an account? <Link to="/login" style={{ fontWeight: '600' }}>Log in</Link>
+                    </p>
+                    <p style={{ fontSize: '0.7rem', color: '#888', marginTop: '1rem' }}>
+                        API URL: {process.env.REACT_APP_API_URL || "Not Set (Using Localhost)"}
                     </p>
                 </div>
             </div>
