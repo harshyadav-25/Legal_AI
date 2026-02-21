@@ -1,24 +1,30 @@
-import bcrypt
+import hashlib
+import os
 from jose import jwt
 from datetime import datetime, timedelta
 from app.core.config import settings
 
 ALGORITHM = "HS256"
 
-
 def hash_password(password: str) -> str:
-    pwd_bytes = password[:72].encode('utf-8')
-    salt = bcrypt.gensalt()
-    return bcrypt.hashpw(pwd_bytes, salt).decode('utf-8')
-
+    salt = os.urandom(16)
+    pw_hash = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000)
+    return salt.hex() + pw_hash.hex()
 
 def verify_password(password: str, hashed: str) -> bool:
     try:
-        pwd_bytes = password[:72].encode('utf-8')
-        hashed_bytes = hashed.encode('utf-8')
-        return bcrypt.checkpw(pwd_bytes, hashed_bytes)
-    except ValueError:
-        return False
+        salt = bytes.fromhex(hashed[:32])
+        pw_hash = bytes.fromhex(hashed[32:])
+        return hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000) == pw_hash
+    except Exception:
+        try:
+            # Fallback for old bcrypt hashes if bcrypt is installed (optional)
+            import bcrypt
+            pwd_bytes = password[:72].encode('utf-8')
+            hashed_bytes = hashed.encode('utf-8')
+            return bcrypt.checkpw(pwd_bytes, hashed_bytes)
+        except Exception:
+            return False
 
 
 def create_access_token(data: dict) -> str:
