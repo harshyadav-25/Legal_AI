@@ -7,7 +7,6 @@ groq
 pypdf
 motor
 pymongo
-passlib[bcrypt]
+bcrypt
 python-jose
 email-validator
-
