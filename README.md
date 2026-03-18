@@ -5,10 +5,6 @@
 
 LegalAI is an intelligent legal assistant designed to simplify complex legal documents and provide instant answers to legal queries. Built with a modern "Ethereal" UI and powered by advanced LLMs (Groq/Llama 3), it empowers users to understand their legal standing with ease.
 <img width="1873" height="879" alt="legalai-homepage" src="https://github.com/user-attachments/assets/e56473ab-bf25-41c5-a691-7a263e338593" />
-<img width="930" height="883" alt="Screenshot 2026-03-18 125133" src="https://github.com/user-attachments/assets/b079cdfa-28d3-406b-a042-eaf21975e5d0" />
-<img width="916" height="878" alt="Screenshot 2026-03-18 125113" src="https://github.com/user-attachments/assets/8c782e35-2551-4f1e-8c19-fb3a69493121" />
-<img width="1244" height="877" alt="Screenshot 2026-03-18 125042" src="https://github.com/user-attachments/assets/99247af1-e466-4cde-a07a-ae08dbb3eb64" />
-
 
 
 
