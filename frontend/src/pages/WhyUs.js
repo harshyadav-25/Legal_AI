@@ -6,22 +6,23 @@ export default function WhyUs() {
     <div className="animate-fade-in" style={{ padding: "40px", maxWidth: "900px", margin: "auto" }}>
       <div className="glass-card">
         <h1 style={{ marginBottom: "1.5rem", background: "var(--gradient-primary)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-          Why AI Legal Sentinel?
+          Why Choose LegalAI?
         </h1>
 
         <p style={{ marginTop: "15px", color: "var(--color-text-muted)", fontSize: '1.1rem', lineHeight: 1.7 }}>
-          Many legal platforms focus on professionals. AI Legal Sentinel is built
-          specifically for common citizens and MSMEs who need clarity, not complexity.
+          While traditional legal platforms cater exclusively to seasoned professionals, 
+          LegalAI is meticulously engineered for the modern user. We replace overwhelming 
+          complexity with absolute clarity, ensuring justice and knowledge are accessible to all.
         </p>
 
         <div style={{ marginTop: "40px" }}>
           <h3 style={{ marginBottom: '1.5rem' }}>What Makes Us Different</h3>
 
           <ul style={{ display: 'grid', gap: '1rem' }}>
-            <FeatureItem title="Structured Guidance" desc="We provide answers in fixed sections instead of open-ended chat responses." />
-            <FeatureItem title="Citizen-First Design" desc="The interface is simple, readable, and usable even for non-technical users." />
-            <FeatureItem title="Action-Oriented Output" desc="Users receive clear next steps, not just legal explanations." />
-            <FeatureItem title="Reliable Architecture" desc="The system is designed with safe fallbacks to avoid incorrect or misleading information." />
+            <FeatureItem title="Structured Precision" desc="Say goodbye to rambling text blocks. We deliver categorical, easy-to-read legal breakdowns." />
+            <FeatureItem title="User-Centric Design" desc="An ethereal, fully responsive interface that feels as premium as the insights it provides." />
+            <FeatureItem title="Action-Oriented Intelligence" desc="We don't just explain the law; we generate tactical next steps to help you move forward." />
+            <FeatureItem title="Enterprise-Grade Reliability" desc="Built with modern AI fallback systems to maintain accuracy, security, and trust at every level." />
           </ul>
         </div>
 
@@ -33,30 +34,30 @@ export default function WhyUs() {
               <thead>
                 <tr style={{ background: "rgba(99, 102, 241, 0.1)" }}>
                   <th style={th}>Feature</th>
-                  <th style={th}>AI Legal Sentinel</th>
-                  <th style={th}>Generic Legal Chatbots</th>
+                  <th style={th}>LegalAI</th>
+                  <th style={th}>Generic Chatbots</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style={td}>Structured Responses</td>
-                  <td style={td}><Check size={18} color="green" style={{ verticalAlign: 'middle' }} /> Yes</td>
-                  <td style={td}><X size={18} color="red" style={{ verticalAlign: 'middle' }} /> No</td>
+                  <td style={td}>Structured Output & Formatting</td>
+                  <td style={td}><Check size={18} color="green" style={{ verticalAlign: 'middle' }} /> Guaranteed</td>
+                  <td style={td}><X size={18} color="red" style={{ verticalAlign: 'middle' }} /> Inconsistent</td>
                 </tr>
                 <tr>
-                  <td style={td}>Citizen-Friendly Language</td>
+                  <td style={td}>Jargon-Free Explanations</td>
                   <td style={td}><Check size={18} color="green" style={{ verticalAlign: 'middle' }} /> Yes</td>
-                  <td style={td}><X size={18} color="red" style={{ verticalAlign: 'middle' }} /> Often Complex</td>
+                  <td style={td}><X size={18} color="red" style={{ verticalAlign: 'middle' }} /> Often Academic</td>
                 </tr>
                 <tr>
                   <td style={td}>Actionable Next Steps</td>
                   <td style={td}><Check size={18} color="green" style={{ verticalAlign: 'middle' }} /> Yes</td>
-                  <td style={td}><AlertCircle size={18} color="orange" style={{ verticalAlign: 'middle' }} /> Limited</td>
+                  <td style={td}><AlertCircle size={18} color="orange" style={{ verticalAlign: 'middle' }} /> Rare</td>
                 </tr>
                 <tr>
-                  <td style={td}>Designed for India</td>
-                  <td style={td}><Check size={18} color="green" style={{ verticalAlign: 'middle' }} /> Yes</td>
-                  <td style={td}><X size={18} color="red" style={{ verticalAlign: 'middle' }} /> Generic</td>
+                  <td style={td}>Domain-Specific Logic</td>
+                  <td style={td}><Check size={18} color="green" style={{ verticalAlign: 'middle' }} /> High Accuracy</td>
+                  <td style={td}><X size={18} color="red" style={{ verticalAlign: 'middle' }} /> Broad/Generic</td>
                 </tr>
               </tbody>
             </table>

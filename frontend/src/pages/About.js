@@ -5,19 +5,19 @@ export default function About() {
     <div className="animate-fade-in" style={{ padding: "40px", maxWidth: "900px", margin: "auto" }}>
       <div className="glass-card">
         <h1 style={{ marginBottom: "1.5rem", background: "var(--gradient-primary)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-          About AI Legal Sentinel
+          About LegalAI
         </h1>
 
         <p style={{ marginTop: "15px", color: "var(--color-text-muted)", lineHeight: "1.7", fontSize: '1.1rem' }}>
-          AI Legal Sentinel is a digital legal awareness platform designed to help
-          Indian citizens and small businesses understand legal situations before
-          they escalate into serious problems.
+          LegalAI is a next-generation intelligent platform engineered to democratize legal 
+          awareness. We empower individuals and modern businesses to seamlessly navigate 
+          complex legal landscapes before they escalate into serious issues.
         </p>
 
         <p style={{ marginTop: "15px", color: "var(--color-text-muted)", lineHeight: "1.7", fontSize: '1.1rem' }}>
-          The platform does not replace lawyers or legal authorities. Instead, it
-          empowers users with basic legal knowledge so they can take informed and
-          responsible actions.
+          While our platform does not replace the critical role of human counsel, it serves 
+          as a powerful first step—providing you with instant, AI-driven legal insights so 
+          you can take informed and responsible actions with confidence.
         </p>
 
         <div style={{ marginTop: "40px", padding: "2rem", background: "rgba(255,255,255,0.5)", borderRadius: "var(--radius-lg)", border: "1px solid var(--color-glass-border)" }}>
@@ -30,18 +30,17 @@ export default function About() {
           </p>
         </div>
 
-        <h3 style={{ marginTop: "40px", marginBottom: "1rem" }}>Future Scope</h3>
+        <h3 style={{ marginTop: "40px", marginBottom: "1rem" }}>Our Vision for the Future</h3>
 
         <ul style={{ lineHeight: "1.8", color: "var(--color-text-muted)", paddingLeft: "1.5rem" }}>
-          <li>Multilingual legal guidance for regional languages</li>
-          <li>Integration with verified government legal portals</li>
-          <li>Category-based legal assistance (criminal, civil, business)</li>
-          <li>Document analysis and compliance checks</li>
+          <li>Expanding multilingual capabilities for deeper regional accessibility</li>
+          <li>Direct integration with verified government and institutional legal portals</li>
+          <li>Specialized, deep-dive assistance tailored for criminal, civil, and corporate law</li>
+          <li>Automated compliance auditing and real-time document risk detection</li>
         </ul>
 
         <p style={{ marginTop: "40px", fontStyle: "italic", color: "var(--color-text-muted)", fontSize: "0.9rem", textAlign: "center" }}>
-          Built as part of a hackathon project to demonstrate the responsible use
-          of AI for social impact.
+          Driven by a commitment to social impact through the responsible application of advanced AI.
         </p>
       </div>
     </div>

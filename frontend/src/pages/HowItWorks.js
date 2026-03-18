@@ -6,43 +6,43 @@ export default function HowItWorks() {
     <div className="animate-fade-in" style={{ padding: "40px", maxWidth: "900px", margin: "auto" }}>
       <div className="glass-card">
         <h1 style={{ marginBottom: "2rem", textAlign: "center", background: "var(--gradient-primary)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-          How AI Legal Sentinel Works
+          How LegalAI Works
         </h1>
 
         <p style={{ textAlign: "center", color: "var(--color-text-muted)", fontSize: '1.2rem', marginBottom: '3rem' }}>
-          AI Legal Sentinel is designed to provide legal awareness in a simple,
-          structured, and reliable manner for citizens and MSMEs.
+          LegalAI synthesizes complex legal data into clear, structured, and actionable 
+          insights for individuals and businesses alike.
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           <Step
             number="1"
-            title="User Input"
-            desc="The user enters a legal question in simple language."
+            title="User Query"
+            desc="Enter your legal question, document, or scenario in everyday language."
             icon={<MessageSquare size={24} color="var(--color-primary)" />}
           />
           <Step
             number="2"
-            title="Frontend Processing"
-            desc="The question is securely sent from the website to the backend API."
+            title="Secure Transmission"
+            desc="Your query is encrypted and instantly transmitted to our robust backend infrastructure."
             icon={<Server size={24} color="#a855f7" />}
           />
           <Step
             number="3"
-            title="AI Reasoning"
-            desc="The backend uses an AI model to analyze the question using Indian legal context."
+            title="AI Analysis"
+            desc="Our state-of-the-art LLM engine analyzes the context against established legal frameworks."
             icon={<Cpu size={24} color="#06b6d4" />}
           />
           <Step
             number="4"
-            title="Structured Output"
-            desc="The response is generated in clear sections: explanation, law, risk, and next steps."
+            title="Structured Intelligence"
+            desc="Results are dynamically organized into simple sections: core explanation, applicable laws, and risk assessment."
             icon={<FileText size={24} color="#ec4899" />}
           />
           <Step
             number="5"
-            title="User Guidance"
-            desc="The user receives actionable legal awareness instead of confusing legal jargon."
+            title="Actionable Guidance"
+            desc="You receive empowering knowledge—stripping away jargon so you know exactly what your next steps should be."
             icon={<CheckCircle size={24} color="#22c55e" />}
           />
         </div>
