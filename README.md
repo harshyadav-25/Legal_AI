@@ -42,6 +42,8 @@ LegalAI is an intelligent legal assistant designed to simplify complex legal doc
 
 ## 🚀 Getting Started
 
+> **Note**: This application is designed to be run **locally** on your computer. There is no deployed version.
+
 ### Prerequisites
 - Node.js & npm
 - Python 3.9+
