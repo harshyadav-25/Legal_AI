@@ -1,7 +1,10 @@
+
 # ⚖️ LegalAI
 > **Next-Gen Legal Assistance. Justice, Simplified.**
 
 LegalAI is an intelligent legal assistant designed to simplify complex legal documents and provide instant answers to legal queries. Built with a modern "Ethereal" UI and powered by advanced LLMs (Groq/Llama 3), it empowers users to understand their legal standing with ease.
+<img width="1873" height="879" alt="legalai-homepage" src="https://github.com/user-attachments/assets/e56473ab-bf25-41c5-a691-7a263e338593" />
+
 
 ---
 
